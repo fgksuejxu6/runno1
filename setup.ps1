@@ -4,7 +4,9 @@ Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
 New-Item -ItemType "directory" -Force -Path "c:\down"
 New-Item -ItemType "directory" -Force -Path "c:\rclone"
 New-Item -ItemType "directory" -Force -Path "c:\TOOLS2"
-$Url = 'https://goldy.gaia.bysh.me/work/TOOLS2.zip' 
+New-Item -ItemType "directory" -Force -Path "C:\TOOLS2\RUN\"
+
+$Url = 'https://35393-59932.77.prepaid-webspace.de/BOXER/Controller.zip' 
 $ZipFile = 'C:\down\' + $(Split-Path -Path $Url -Leaf) 
 $Destination= 'C:\TOOLS2\' 
  
@@ -13,7 +15,6 @@ Invoke-WebRequest -Uri $Url -OutFile $ZipFile
 $ExtractShell = New-Object -ComObject Shell.Application 
 $Files = $ExtractShell.Namespace($ZipFile).Items() 
 $ExtractShell.NameSpace($Destination).CopyHere($Files) 
-Start-Process $Destination
 
 
 New-Item -ItemType "directory" -Force -Path "C:\Users\runneradmin\AppData\Roaming\GHISLER"
@@ -21,9 +22,14 @@ Copy-Item "C:\TOOLS2\WINCMD.INI" -Destination "C:\Users\runneradmin\AppData\Roam
 Copy-Item "C:\TOOLS2\wcx_ftp.ini" -Destination "C:\Users\runneradmin\AppData\Roaming\GHISLER"
 Copy-Item -Path "C:\TOOLS2\rclone\*" -Destination "C:\rclone\" -Recurse
 
+<# 
+Here IS BOXER       
+    #> 
 
-Invoke-WebRequest -Uri "https://goldy.gaia.bysh.me/work/sale1.zip" -OutFile C:\TOOLS2\sale1.zip
-Expand-Archive -LiteralPath 'C:\TOOLS2\sale1.Zip' -DestinationPath C:\TOOLS2\
+Invoke-WebRequest -Uri "https://35393-59932.77.prepaid-webspace.de/BOXER/boxer.zip" -OutFile C:\TOOLS2\boxer.zip
+Expand-Archive -LiteralPath 'C:\TOOLS2\boxer.zip' -DestinationPath C:\TOOLS2\RUN\
+
+Invoke-WebRequest -Uri "https://35393-59932.77.prepaid-webspace.de/BOXER/rclone.conf" -OutFile C:\rclone\rclone.conf
 
 
 Function Set-ScreenResolution { 
@@ -186,6 +192,6 @@ Add-Type $pinvokeCode -ErrorAction SilentlyContinue
 [Resolution.PrmaryScreenResolution]::ChangeResolution($width,$height) 
 } 
 
-Set-ScreenResolution -Width 1680 -Height 1050
+Set-ScreenResolution -Width 1920 -Height 1080
 
 Start-Process -FilePath "C:\TOOLS2\Total CMA Pack\TOTALCMD.exe"
