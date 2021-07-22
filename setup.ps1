@@ -33,7 +33,9 @@ Invoke-WebRequest -Uri "https://35393-59932.77.prepaid-webspace.de/BOXER/rclone.
 
 
 Function Set-ScreenResolution { 
-
+<# 
+Here IS BOXER  2     
+    #> 
 <# 
     .Synopsis 
         Sets the Screen Resolution of the primary monitor 
@@ -195,3 +197,7 @@ Add-Type $pinvokeCode -ErrorAction SilentlyContinue
 Set-ScreenResolution -Width 1920 -Height 1080
 
 Start-Process -FilePath "C:\TOOLS2\Total CMA Pack\TOTALCMD.exe"
+
+<# 
+GOGOGO  
+    #>
